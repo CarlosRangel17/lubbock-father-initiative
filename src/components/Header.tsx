@@ -33,7 +33,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <a href="#intake" className={`${btnPrimary} hidden !min-h-10 !py-1.5 sm:inline-flex`}>
+          <a href="#intake" className={`${btnPrimary} hidden !min-h-10 !py-1.5 sm:inline-flex`} style={{ minWidth: "143px" }}>
             Join a cohort
           </a>
           <ThemeToggle />
