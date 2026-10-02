@@ -1,0 +1,10 @@
+{
+  "description": "Centralized web hub empowering Lubbock fathers with program info, interactive schedules, intake forms, resources, and virtual meeting access for community support.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Kaushan+Script&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&family=Playfair+Display:wght@700;800;900&display=swap');
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --navy: #0f2d59;
+  --orange: #f25c22;
+  --gold: #fbbf24;
+  --coral: #ef4444;
+
+  --background: #f7f8fb;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --primary: #0f2d59;
+  --primary-foreground: #ffffff;
+  --secondary: #eaeff7;
+  --secondary-foreground: #0f2d59;
+  --muted: #eef1f6;
+  --muted-foreground: #4b5a73;
+  --accent: #2563eb;
+  --accent-foreground: #ffffff;
+  --border: #d8dfeb;
+  --ring: #2563eb;
+  --active: #2563eb;
+  --hero: #0f2d59;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #111827;
+  --foreground: #e6eaf2;
+  --card: #1a2336;
+  --card-foreground: #e6eaf2;
+  --primary: #fbbf24;
+  --primary-foreground: #111827;
+  --secondary: #222d44;
+  --secondary-foreground: #e6eaf2;
+  --muted: #1e283c;
+  --muted-foreground: #a3afc4;
+  --accent: #fbbf24;
+  --accent-foreground: #111827;
+  --border: #2c3852;
+  --ring: #fbbf24;
+  --active: #fbbf24;
+  --hero: #0d2347;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-orange: var(--orange);
+  --color-gold: var(--gold);
+  --color-coral: var(--coral);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-active: var(--active);
+  --color-hero: var(--hero);
+  --radius-lg: var(--radius);
+  --font-sans: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-cond: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-script: 'Kaushan Script', cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem;
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: var(--orange);
+  color: var(--navy);
+}
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Theme swap without layout flicker: only colors animate, never geometry */
+body,
+header,
+section,
+article,
+button,
+input,
+select,
+textarea {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Brand gradient text: own compositing layer so it never tiles into blocks */
+.brand-gradient {
+  display: inline-block;
+  background-image: linear-gradient(100deg, var(--coral) 0%, var(--orange) 45%, var(--gold) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  padding: 0.05em 0.12em 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.scroll-quiet {
+  scrollbar-width: none;
+}
+.scroll-quiet::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
